@@ -18,6 +18,8 @@ pipeline_tag: text-classification
 
 # Jev-Style-Cascade-9B
 
+**Website:** [jevstyle.com](https://jevstyle.com/#cascade-9b)
+
 **One `/v1/systemone` model built from two:** [Jev-Style-2B-Decision-v3](https://huggingface.co/chaoliangUNSW/Jev-Style-2B-Decision-v3) answers every question first, and only the questions it is not confident about go to [JevK5-9B](https://huggingface.co/alibiserikbay/JevK5-9B) (by alibiserikbay, Apache-2.0). This repository holds no new weights: it is the frozen cascade (`cascade.json`), how its threshold was chosen, and its evaluation. Both models are downloaded from their own repositories at pinned revisions.
 
 | | Jev-Style-Cascade-9B |

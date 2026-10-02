@@ -4,6 +4,6 @@ This repository mirrors the public Hugging Face model at:
 
 <https://huggingface.co/chaoliangUNSW/Jev-Style-Cascade-9B>
 
-Snapshot of Hugging Face revision `ffb9fea4b52977c36de0af1b4c2486bbf4c19ca8`.
+Snapshot of Hugging Face revision `02fc9c17747d0f0283df9561b23bdb7977cb1ce3`.
 
 All files are stored on the `main` branch.
