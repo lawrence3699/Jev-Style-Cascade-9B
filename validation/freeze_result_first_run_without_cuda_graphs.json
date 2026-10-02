@@ -1,0 +1,117 @@
+{
+  "calibration_sha256": "580962e4b2bc86b32b42731eda42536f57321c7d1ca9ac1e3b970bf7dbd7e2d2",
+  "questions": 4992,
+  "requests": 3758,
+  "predeclaration_sha256": "e427a671bbe6cc3a07c3c1819125f7169b6d547fc37d067f5f3ccff77ad4e0a6",
+  "singles": {
+    "0.8b-v3_bfloat16": {
+      "accuracy": 0.578926282051282,
+      "answered": 1.0,
+      "median_ms_warm": 46.29,
+      "median_ms_first_pass": 45.727
+    },
+    "0.8b-v3_float32": {
+      "accuracy": 0.5791266025641025,
+      "answered": 1.0,
+      "median_ms_warm": 42.731,
+      "median_ms_first_pass": 42.648
+    },
+    "2b-v3_bfloat16": {
+      "accuracy": 0.6606570512820513,
+      "answered": 1.0,
+      "median_ms_warm": 92.962,
+      "median_ms_first_pass": 93.484
+    },
+    "2b-v3_float32": {
+      "accuracy": 0.6618589743589743,
+      "answered": 1.0,
+      "median_ms_warm": 89.962,
+      "median_ms_first_pass": 89.226
+    },
+    "jevk5_9b": {
+      "accuracy": 0.7409855769230769,
+      "answered": 1.0,
+      "median_ms_warm": 28.779,
+      "median_ms_first_pass": 28.754
+    }
+  },
+  "path_0.8b-v3": {
+    "bf16_flips": 32,
+    "bf16_flip_rate": 0.00641,
+    "median_ms_fp32": 42.731,
+    "median_ms_bf16": 46.29,
+    "chosen": "float32"
+  },
+  "path_2b-v3": {
+    "bf16_flips": 38,
+    "bf16_flip_rate": 0.00761,
+    "median_ms_fp32": 89.962,
+    "median_ms_bf16": 92.962,
+    "chosen": "float32"
+  },
+  "speed_gate": {
+    "2b_median_ms": 89.962,
+    "jevk5_median_ms": 28.779,
+    "ratio": 3.126,
+    "max_ratio": 0.6,
+    "pass": false
+  },
+  "jevk5_alone": {
+    "accuracy": 0.7409855769230769,
+    "cost_ms": 28.779,
+    "top_share": 1.0,
+    "calls_share": [
+      1.0
+    ],
+    "answered_by": [
+      1.0
+    ]
+  },
+  "accuracy_floor": 0.7309855769230769,
+  "glue2": {
+    "tiers": [
+      "2b-v3_float32",
+      "jevk5_9b"
+    ],
+    "parity_mismatches": 0,
+    "thresholds": [
+      0.75
+    ],
+    "accuracy": 0.7311698717948718,
+    "cost_ms": 105.9367189994678,
+    "top_share": 0.5725160256410257,
+    "calls_share": [
+      1.0,
+      0.5550824906865354
+    ],
+    "answered_by": [
+      0.42748397435897434,
+      0.5725160256410257
+    ]
+  },
+  "glue3": {
+    "tiers": [
+      "0.8b-v3_float32",
+      "2b-v3_float32",
+      "jevk5_9b"
+    ],
+    "parity_mismatches": 0,
+    "thresholds": [
+      0.82,
+      0.92
+    ],
+    "accuracy": 0.7315705128205128,
+    "cost_ms": 126.82331373070782,
+    "top_share": 0.663261217948718,
+    "calls_share": [
+      1.0,
+      0.7307078233102714,
+      0.6378392762107504
+    ],
+    "answered_by": [
+      0.25060096153846156,
+      0.08613782051282051,
+      0.663261217948718
+    ]
+  }
+}

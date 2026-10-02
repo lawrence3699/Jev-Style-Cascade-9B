@@ -1,0 +1,1852 @@
+{
+ "name": "jev-cascade calibration set",
+ "purpose": "freeze the Glue-2 / Glue-3 confidence thresholds once (PREDECLARATION.md); not for reporting",
+ "file": "calibration.jsonl",
+ "sha256": "580962e4b2bc86b32b42731eda42536f57321c7d1ca9ac1e3b970bf7dbd7e2d2",
+ "seed": 20261003,
+ "builder": "build_calibration.py",
+ "builder_sha256": "df771e3c5c726c5f133c76cfb64a8f9f72c199a94613cc586a5e790186d564c9",
+ "format": "jev-style eval labelled JSONL (one /v1/systemone request per line + 'label' per question); row-level 'meta' is not sent to engines; first line is a '#' comment (skipped by load_rows)",
+ "rows": 3758,
+ "questions": 4992,
+ "question_types": {
+  "choice": {
+   "n": 2321,
+   "share": 0.465
+  },
+  "noul": {
+   "n": 1661,
+   "share": 0.333
+  },
+  "score": {
+   "n": 1010,
+   "share": 0.202
+  }
+ },
+ "choice_option_buckets": {
+  "3-5": 933,
+  "21-60": 248,
+  "11-20": 444,
+  "6-10": 439,
+  "2": 257
+ },
+ "score_level_buckets": {
+  "score_3_levels": 90,
+  "score_5_levels": 840,
+  "score_6_levels": 80
+ },
+ "state_tokens": {
+  "tokenizer": "chaoliangUNSW/Jev-Style-2B-Decision-v3@fbb9d676753876bb8285c725ee8c16253af45e3d",
+  "min": 1,
+  "median": 38,
+  "max": 11750,
+  "rows_2k_12k": 210,
+  "questions_on_2k_12k_states": 490,
+  "rows_over_12k": 0
+ },
+ "questions_by_language": {
+  "en": 3682,
+  "non-en": 1310
+ },
+ "dedup": {
+  "normalizer": "di-kit/normalize_hash.py",
+  "di_suite_hashes": {
+   "path": "/Users/jason/Desktop/jev-cascade/di-kit/suite_text_hashes.txt",
+   "present": true,
+   "n_hashes": 171673,
+   "sha256": "0d3a82b3cfbdda9900de38a64fa49f1d8e328eeee7afc40491196c6551ad929f",
+   "status": "applied"
+  },
+  "jevbench_hashes": {
+   "path": "/Users/jason/Desktop/jev-cascade/calibration/jevbench_hashes.txt",
+   "n_hashes": 834,
+   "sha256": "3be89253d739647c31deb13a490ea95a9337c64ba3c1500aefb34d759b919d55"
+  },
+  "checked": "exact: state (whole, normalized), item-specific instructions, criteria texts >= 32 chars, raw source text fields >= 32 normalized chars; template instructions (shared by >= 3 candidates) are only logged. near-duplicate: share of the state's 13-word shingles found in any DI suite state/instruction or JevBench public item >= threshold",
+  "ngram_containment": {
+   "words": 13,
+   "threshold": 0.1,
+   "suite_dir": "/Users/jason/Desktop/jev-cascade/di-kit/work/artifacts/benchmark-suite/release-v2-rebuilt",
+   "jevbench_dir": "/Users/jason/Desktop/jev-cascade/jevbench/datasets/public",
+   "applied": true,
+   "di_rows_scanned": 155390,
+   "jevbench_items_scanned": 231,
+   "candidates_with_any_shared_shingle": 267
+  },
+  "dropped_by_reason": {
+   "di_13gram_containment>=0.10": 3
+  },
+  "report": "dedup_report.json"
+ },
+ "training_disclosures_checked": {
+  "chaoliangUNSW/Jev-Style-0.8B-Decision-v3": "633729d87c685cd9e867da1a801caf8cd4cba16c (README 'Training', 'Training data and licences')",
+  "chaoliangUNSW/Jev-Style-2B-Decision-v3": "fbb9d676753876bb8285c725ee8c16253af45e3d (validation/data_sources.json, README 'Training data and licences', validation/benchmarks/contamination.json)",
+  "alibiserikbay/JevK5-9B": "d6521a18a86999190e9d775c915af3d6d6772fc4 (card: same data as JevK5 v0.3)",
+  "alibiserikbay/JevK5": "c4f7fdb3aeab5582336406e78d3bef11bf98833d (card 'How it was trained' data table)",
+  "copies": "src_cards/"
+ },
+ "excluded_dataset_families": {
+  "in_training_of_a_cascade_model": [
+   "MASSIVE",
+   "CLINC150",
+   "HWU64",
+   "BANKING77",
+   "SGD",
+   "BoolQ",
+   "SQuAD v2",
+   "MNLI/MultiNLI",
+   "SNLI",
+   "WANLI",
+   "ANLI",
+   "AG News",
+   "GoEmotions",
+   "DAIR Emotion",
+   "SST-5",
+   "Civil Comments",
+   "QuALITY",
+   "Enron spam",
+   "phishing sets",
+   "jailbreak/prompt-injection sets",
+   "LocalLLaMA/typed-decisions",
+   "ARC",
+   "QASC",
+   "QASPER",
+   "ROPES",
+   "LexGLUE",
+   "FinQA",
+   "AQuA-RAT (and MathQA)",
+   "MBPP",
+   "TimeQA",
+   "TempReason",
+   "CONDAQA",
+   "MedMCQA",
+   "HellaSwag/SWAG",
+   "CommonsenseQA",
+   "MAUD",
+   "DROP",
+   "ShARC",
+   "TabFact",
+   "HelpSteer2",
+   "GSM8K",
+   "Lichess puzzles",
+   "WinoGrande",
+   "When2Call",
+   "HoVer",
+   "iSarcasmEval",
+   "Amazon ESCI",
+   "RAGTruth",
+   "ToolACE",
+   "OpenBookQA",
+   "Cosmos QA",
+   "New Yorker caption contest",
+   "RuleTaker/ProofWriter",
+   "Glaive function calling"
+  ],
+  "evaluated_by_a_cascade_model_(avoided)": [
+   "tweet_topic",
+   "fin_topic",
+   "daily_dialog",
+   "toxic-chat",
+   "XNLI",
+   "ContractNLI",
+   "MS MARCO",
+   "bev-decision-150K"
+  ],
+  "decision_index_0.2.1": "all 50 benchmarks in data/di_results/methodology.json incl. added (MMLU-Pro, BBH, RAGTruth, HoVer, When2Call, New Yorker, PhishNChips)",
+  "jevbench": "public items are JevBench-written; held-out judge items draw on HumanEval+, code_contests, GSM8K, MATH-500, AIME25 (none used)",
+  "dropped_after_ngram_check": [
+   "SciTail (hypotheses are rewrites of AI2 science-exam questions; 13-gram overlap with Decision Index ARC-Easy test items, and ARC train is in 2B/JevK5 training)"
+  ],
+  "licence_or_access": [
+   "FOLIO (gated)",
+   "ConditionalQA (research-only notice, no licence)",
+   "RACE/QuAIL/SciQ/XNLI/WiC/SICK (non-commercial)",
+   "Yelp/Amazon reviews (restricted terms)",
+   "news sarcasm headlines (licence unclear)"
+  ]
+ },
+ "sources": {
+  "mtop": {
+   "dataset": "MTOP (mteb/mtop_domain + mteb/mtop_intent)",
+   "repos": [
+    "mteb/mtop_domain",
+    "mteb/mtop_intent"
+   ],
+   "split": "test",
+   "licence": "CC BY-SA 4.0 (LICENSE.txt in the original dl.fbaipublicfiles.com/mtop/mtop.zip; mteb card says 'unknown')",
+   "domain": "assistant routing: domain + function/intent selection (en, de, es, fr, hi, th)",
+   "builder_doc": "MTOP (Facebook, CC BY-SA 4.0): assistant-request routing. Two choice questions per utterance: the domain (11 options) and the intent/function among 12-60 candidates (gold + same-domain intents first, then other intents).",
+   "revisions": {
+    "mteb/mtop_domain": "b8451f34e224fe9b3b82ac712dba88dcdc9eb58f",
+    "mteb/mtop_intent": "9a200bf94b01afa0438a39c54f6a3aceaf78856f"
+   },
+   "files": {
+    "mteb/mtop_domain/en/test.jsonl": {
+     "repo": "mteb/mtop_domain",
+     "path": "en/test.jsonl",
+     "revision": "b8451f34e224fe9b3b82ac712dba88dcdc9eb58f",
+     "sha256": "93a1c27cfa094f60ef2802478b77421fbd7a81821ae09914103378e0c104a0b4"
+    },
+    "mteb/mtop_intent/en/test.jsonl": {
+     "repo": "mteb/mtop_intent",
+     "path": "en/test.jsonl",
+     "revision": "9a200bf94b01afa0438a39c54f6a3aceaf78856f",
+     "sha256": "e51d50198b8827ac5e94dfa551a0c879ac9918cf92517411f9e4863416a8d65b"
+    },
+    "mteb/mtop_domain/de/test.jsonl": {
+     "repo": "mteb/mtop_domain",
+     "path": "de/test.jsonl",
+     "revision": "b8451f34e224fe9b3b82ac712dba88dcdc9eb58f",
+     "sha256": "8b4a2aeb3bbe72a28fc2016f3569d7a1f78f42d0c438c07e08839ea93e828083"
+    },
+    "mteb/mtop_intent/de/test.jsonl": {
+     "repo": "mteb/mtop_intent",
+     "path": "de/test.jsonl",
+     "revision": "9a200bf94b01afa0438a39c54f6a3aceaf78856f",
+     "sha256": "17ce9ff2b8301830bd52510f367771154da04129676669d78178b8a4c236e4be"
+    },
+    "mteb/mtop_domain/es/test.jsonl": {
+     "repo": "mteb/mtop_domain",
+     "path": "es/test.jsonl",
+     "revision": "b8451f34e224fe9b3b82ac712dba88dcdc9eb58f",
+     "sha256": "caa93493b93e8022bb2d6894db38e5f0b96982d53954ac282fe8de66974cc15e"
+    },
+    "mteb/mtop_intent/es/test.jsonl": {
+     "repo": "mteb/mtop_intent",
+     "path": "es/test.jsonl",
+     "revision": "9a200bf94b01afa0438a39c54f6a3aceaf78856f",
+     "sha256": "b1e22f4bb38258788ab46ffd2ccc9a7961e8439a5457ec6ff29040e3979e762f"
+    },
+    "mteb/mtop_domain/fr/test.jsonl": {
+     "repo": "mteb/mtop_domain",
+     "path": "fr/test.jsonl",
+     "revision": "b8451f34e224fe9b3b82ac712dba88dcdc9eb58f",
+     "sha256": "721738b1732bc1f571d04772fc033dbc397f199c79495174101955268215fb20"
+    },
+    "mteb/mtop_intent/fr/test.jsonl": {
+     "repo": "mteb/mtop_intent",
+     "path": "fr/test.jsonl",
+     "revision": "9a200bf94b01afa0438a39c54f6a3aceaf78856f",
+     "sha256": "7aec4d670f4cd8a22f15cf545cf20d482572990c4a7b50ee6016c6b3397db875"
+    },
+    "mteb/mtop_domain/hi/test.jsonl": {
+     "repo": "mteb/mtop_domain",
+     "path": "hi/test.jsonl",
+     "revision": "b8451f34e224fe9b3b82ac712dba88dcdc9eb58f",
+     "sha256": "fd1fb5c74aebb3f2d3abab5a90c296183e6dfb49a64f7cb8b0683c9994c8fbe5"
+    },
+    "mteb/mtop_intent/hi/test.jsonl": {
+     "repo": "mteb/mtop_intent",
+     "path": "hi/test.jsonl",
+     "revision": "9a200bf94b01afa0438a39c54f6a3aceaf78856f",
+     "sha256": "6c73c7faac9c867f0e24aa83aef6a8594eb6f19131d78394172034d445cb5f3c"
+    },
+    "mteb/mtop_domain/th/test.jsonl": {
+     "repo": "mteb/mtop_domain",
+     "path": "th/test.jsonl",
+     "revision": "b8451f34e224fe9b3b82ac712dba88dcdc9eb58f",
+     "sha256": "78b1c5fc99d7122f590e86649a1d933a57d1f7b7d7b7cf1ea2f15fe118bad265"
+    },
+    "mteb/mtop_intent/th/test.jsonl": {
+     "repo": "mteb/mtop_intent",
+     "path": "th/test.jsonl",
+     "revision": "9a200bf94b01afa0438a39c54f6a3aceaf78856f",
+     "sha256": "0838ff2610bd008ec17de6d375680a263eec0990d001b467ed4871a128bc12a2"
+    }
+   },
+   "rows": 200,
+   "questions": 400,
+   "question_types": {
+    "choice": 400
+   },
+   "option_buckets": {
+    "11-20": 252,
+    "21-60": 148
+   },
+   "languages": {
+    "en": 110,
+    "es": 20,
+    "th": 15,
+    "fr": 20,
+    "de": 20,
+    "hi": 15
+   },
+   "state_tokens": {
+    "min": 3,
+    "median": 9,
+    "max": 48,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels. MTOP is a different corpus from MASSIVE/CLINC150/HWU64/SGD/BANKING77 (all excluded).",
+   "candidates": 800,
+   "quota": 200,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "sib200": {
+   "dataset": "SIB-200",
+   "repos": [
+    "Davlan/sib200"
+   ],
+   "split": "test",
+   "licence": "CC BY-SA 4.0",
+   "domain": "topic classification, 15 languages",
+   "builder_doc": "SIB-200 (CC BY-SA 4.0): topic of a FLORES-200 sentence, 7 options. Disjoint sentence ids across languages (the languages are translations of the same sentences).",
+   "revisions": {
+    "Davlan/sib200": "38977a667f6fc264d5c26ec57a01e16db040b358"
+   },
+   "files": {
+    "Davlan/sib200/data/eng_Latn/test.tsv": {
+     "repo": "Davlan/sib200",
+     "path": "data/eng_Latn/test.tsv",
+     "revision": "38977a667f6fc264d5c26ec57a01e16db040b358",
+     "sha256": "fd7012f846f5a8caead1e7419023d64a28351893f3d9c7ebcde4c5481ca5d326"
+    },
+    "Davlan/sib200/data/deu_Latn/test.tsv": {
+     "repo": "Davlan/sib200",
+     "path": "data/deu_Latn/test.tsv",
+     "revision": "38977a667f6fc264d5c26ec57a01e16db040b358",
+     "sha256": "c7709a01e81725fd929145787fec51426e3c76be4125b2113b0dfecde9da4b39"
+    },
+    "Davlan/sib200/data/fra_Latn/test.tsv": {
+     "repo": "Davlan/sib200",
+     "path": "data/fra_Latn/test.tsv",
+     "revision": "38977a667f6fc264d5c26ec57a01e16db040b358",
+     "sha256": "6ef23d135ee0bde78d907a908dbb5127ab27ee1189b0c2e3db51f328e0707d05"
+    },
+    "Davlan/sib200/data/spa_Latn/test.tsv": {
+     "repo": "Davlan/sib200",
+     "path": "data/spa_Latn/test.tsv",
+     "revision": "38977a667f6fc264d5c26ec57a01e16db040b358",
+     "sha256": "971fbbf0ed5e2f4d10953264c9d5ef05d854b654014d3a10b98f50a12443ea41"
+    },
+    "Davlan/sib200/data/ita_Latn/test.tsv": {
+     "repo": "Davlan/sib200",
+     "path": "data/ita_Latn/test.tsv",
+     "revision": "38977a667f6fc264d5c26ec57a01e16db040b358",
+     "sha256": "8df9a2cf4f0df5ef1a4a945621bdf39ce06ea676bfb0819bb65b60c8e933152b"
+    },
+    "Davlan/sib200/data/por_Latn/test.tsv": {
+     "repo": "Davlan/sib200",
+     "path": "data/por_Latn/test.tsv",
+     "revision": "38977a667f6fc264d5c26ec57a01e16db040b358",
+     "sha256": "d13f67bf06d1a00b9f25aeda8ccd33d56ca252f3352e4e2bf085438d5b6541b1"
+    },
+    "Davlan/sib200/data/rus_Cyrl/test.tsv": {
+     "repo": "Davlan/sib200",
+     "path": "data/rus_Cyrl/test.tsv",
+     "revision": "38977a667f6fc264d5c26ec57a01e16db040b358",
+     "sha256": "9e08f02d142687110b580bf75e28ce643289939582190eb986c948f47c35fee7"
+    },
+    "Davlan/sib200/data/zho_Hans/test.tsv": {
+     "repo": "Davlan/sib200",
+     "path": "data/zho_Hans/test.tsv",
+     "revision": "38977a667f6fc264d5c26ec57a01e16db040b358",
+     "sha256": "0c8771f4f51e6097f5cf4086b5532edfdee5f374c58c441574c0925f55e07f47"
+    },
+    "Davlan/sib200/data/jpn_Jpan/test.tsv": {
+     "repo": "Davlan/sib200",
+     "path": "data/jpn_Jpan/test.tsv",
+     "revision": "38977a667f6fc264d5c26ec57a01e16db040b358",
+     "sha256": "ced64e76311d1e0e4f1d970b98f907daed78abe471a792da58301fb489a07962"
+    },
+    "Davlan/sib200/data/kor_Hang/test.tsv": {
+     "repo": "Davlan/sib200",
+     "path": "data/kor_Hang/test.tsv",
+     "revision": "38977a667f6fc264d5c26ec57a01e16db040b358",
+     "sha256": "3effe5191e024624b64a05e493f7010e29aec099d279877f2cfced890d3ccb8d"
+    },
+    "Davlan/sib200/data/arb_Arab/test.tsv": {
+     "repo": "Davlan/sib200",
+     "path": "data/arb_Arab/test.tsv",
+     "revision": "38977a667f6fc264d5c26ec57a01e16db040b358",
+     "sha256": "6ee8321b157e9c27e8ad38157ba5e88d085f8449d4a469149a6e1dafb2d26384"
+    },
+    "Davlan/sib200/data/hin_Deva/test.tsv": {
+     "repo": "Davlan/sib200",
+     "path": "data/hin_Deva/test.tsv",
+     "revision": "38977a667f6fc264d5c26ec57a01e16db040b358",
+     "sha256": "cf0fa55bb3ed7a146798fa22e6350eae49ae0fb96126e9d84726628b406b55c6"
+    },
+    "Davlan/sib200/data/tur_Latn/test.tsv": {
+     "repo": "Davlan/sib200",
+     "path": "data/tur_Latn/test.tsv",
+     "revision": "38977a667f6fc264d5c26ec57a01e16db040b358",
+     "sha256": "99e45820a77387109f9c6f989be7459881e54a82fcfb743b75b206eb686f0dde"
+    },
+    "Davlan/sib200/data/vie_Latn/test.tsv": {
+     "repo": "Davlan/sib200",
+     "path": "data/vie_Latn/test.tsv",
+     "revision": "38977a667f6fc264d5c26ec57a01e16db040b358",
+     "sha256": "1de363037ff166e60f18f002555ef247cd2c80cc90fadc87c0c2ccb6612f42cc"
+    },
+    "Davlan/sib200/data/swh_Latn/test.tsv": {
+     "repo": "Davlan/sib200",
+     "path": "data/swh_Latn/test.tsv",
+     "revision": "38977a667f6fc264d5c26ec57a01e16db040b358",
+     "sha256": "008e4ff2441c46d6fc92714658dedb2c185bafe06cb914e03342734a3a2c8288"
+    }
+   },
+   "rows": 182,
+   "questions": 182,
+   "question_types": {
+    "choice": 182
+   },
+   "option_buckets": {
+    "6-10": 182
+   },
+   "languages": {
+    "eng_Latn": 70,
+    "deu_Latn": 8,
+    "fra_Latn": 8,
+    "spa_Latn": 8,
+    "ita_Latn": 8,
+    "por_Latn": 8,
+    "rus_Cyrl": 8,
+    "zho_Hans": 8,
+    "jpn_Jpan": 8,
+    "kor_Hang": 8,
+    "arb_Arab": 8,
+    "hin_Deva": 8,
+    "tur_Latn": 8,
+    "vie_Latn": 8,
+    "swh_Latn": 8
+   },
+   "state_tokens": {
+    "min": 12,
+    "median": 30,
+    "max": 145,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 204,
+   "quota": 182,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "dbpedia14": {
+   "dataset": "DBpedia-14",
+   "repos": [
+    "fancyzhx/dbpedia_14"
+   ],
+   "split": "test",
+   "licence": "CC BY-SA 3.0",
+   "domain": "entity/topic classification",
+   "builder_doc": "DBpedia-14 (CC BY-SA 3.0): ontology class of a Wikipedia abstract, 14 options.",
+   "revisions": {
+    "fancyzhx/dbpedia_14": "9abd46cf7fc8b4c64290f26993c540b92aa145ac"
+   },
+   "files": {
+    "fancyzhx/dbpedia_14/dbpedia_14/test-00000-of-00001.parquet": {
+     "repo": "fancyzhx/dbpedia_14",
+     "path": "dbpedia_14/test-00000-of-00001.parquet",
+     "revision": "9abd46cf7fc8b4c64290f26993c540b92aa145ac",
+     "sha256": "05fed41640e97f93ffd442757f6a84170348cf0c7500ecbda9e95ddcd928c631"
+    }
+   },
+   "rows": 140,
+   "questions": 140,
+   "question_types": {
+    "choice": 140
+   },
+   "option_buckets": {
+    "11-20": 140
+   },
+   "languages": {
+    "en": 140
+   },
+   "state_tokens": {
+    "min": 9,
+    "median": 75,
+    "max": 144,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 560,
+   "quota": 140,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "dbpedia_l3": {
+   "dataset": "DBpedia hierarchical classes (level 3)",
+   "repos": [
+    "DeveloperOats/DBPedia_Classes"
+   ],
+   "split": "test",
+   "licence": "HF card CC0-1.0; underlying DBpedia/Wikipedia text CC BY-SA 3.0",
+   "domain": "fine-grained classification, 17-60 options",
+   "builder_doc": "DBpedia hierarchical classes (DeveloperOats/DBPedia_Classes; DBpedia text CC BY-SA 3.0): the fine-grained (level-3) class among its siblings: all level-3 classes of the same level-1 class (Event 18, Place 37, Species 17, Work 17), or for 'Agent' (123 classes) the same level-2 group plus random Agent classes up to 21-60 options.",
+   "revisions": {
+    "DeveloperOats/DBPedia_Classes": "4d0aa96069f24063697e4df63b95be78d3f7fb7d"
+   },
+   "files": {
+    "DeveloperOats/DBPedia_Classes/DBPEDIA_test.csv": {
+     "repo": "DeveloperOats/DBPedia_Classes",
+     "path": "DBPEDIA_test.csv",
+     "revision": "4d0aa96069f24063697e4df63b95be78d3f7fb7d",
+     "sha256": "8e26d4c21c691bf1d485215915d1f1a73fb9555ab944df79829d01d2887ed2c6"
+    }
+   },
+   "rows": 150,
+   "questions": 150,
+   "question_types": {
+    "choice": 150
+   },
+   "option_buckets": {
+    "11-20": 50,
+    "21-60": 100
+   },
+   "languages": {
+    "en": 150
+   },
+   "state_tokens": {
+    "min": 17,
+    "median": 102,
+    "max": 503,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 600,
+   "quota": 150,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "patent": {
+   "dataset": "BIGPATENT CPC sections (ccdv/patent-classification, config 'patent')",
+   "repos": [
+    "ccdv/patent-classification"
+   ],
+   "split": "test",
+   "licence": "CC BY 4.0 (BIGPATENT; ccdv card states none)",
+   "domain": "long-document routing (2K-12K tokens)",
+   "builder_doc": "Patent descriptions (ccdv/patent-classification 'patent', derived from BIGPATENT, CC BY 4.0): CPC section, 9 options. Long states only: 2,000-12,000 tokens.",
+   "revisions": {
+    "ccdv/patent-classification": "17bd94cd6594bac1b82a697e811fb7cf34a7af35"
+   },
+   "files": {
+    "ccdv/patent-classification/patent/test-00000-of-00001.parquet": {
+     "repo": "ccdv/patent-classification",
+     "path": "patent/test-00000-of-00001.parquet",
+     "revision": "17bd94cd6594bac1b82a697e811fb7cf34a7af35",
+     "sha256": "d52a3aa7829e35a1da254c5e849ebf4275602a03aeecb37ea174f6e7f988f4fc"
+    }
+   },
+   "rows": 140,
+   "questions": 140,
+   "question_types": {
+    "choice": 140
+   },
+   "option_buckets": {
+    "6-10": 140
+   },
+   "languages": {
+    "en": 140
+   },
+   "state_tokens": {
+    "min": 2032,
+    "median": 3615,
+    "max": 11279,
+    "long_2k_12k_rows": 140
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels. Long documents; BIGPATENT is not in any disclosure.",
+   "candidates": 400,
+   "quota": 140,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "piqa": {
+   "dataset": "PIQA",
+   "repos": [
+    "ybisk/piqa"
+   ],
+   "split": "validation",
+   "licence": "AFL-3.0 (authors' site yonatanbisk.com/piqa; HF card 'unknown')",
+   "domain": "QA-as-choice, physical commonsense",
+   "builder_doc": "PIQA (AFL-3.0): physical commonsense, 2 options (validation split; test labels are hidden).",
+   "revisions": {
+    "ybisk/piqa": "142c51238b3ca2bc61e9a075913871b8b600e8e1"
+   },
+   "files": {
+    "ybisk/piqa/plain_text/validation/0000.parquet": {
+     "repo": "ybisk/piqa",
+     "path": "plain_text/validation/0000.parquet",
+     "revision": "142c51238b3ca2bc61e9a075913871b8b600e8e1",
+     "sha256": "40e1677bba609c8801deacc171d76f3e24c083f365c95a1cbda7520c923dfea2"
+    }
+   },
+   "rows": 140,
+   "questions": 140,
+   "question_types": {
+    "choice": 140
+   },
+   "option_buckets": {
+    "2": 140
+   },
+   "languages": {
+    "en": 140
+   },
+   "state_tokens": {
+    "min": 1,
+    "median": 8,
+    "max": 23,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 560,
+   "quota": 140,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "siqa": {
+   "dataset": "Social IQa",
+   "repos": [
+    "allenai/social_i_qa"
+   ],
+   "split": "validation",
+   "licence": "CC BY 4.0",
+   "domain": "QA-as-choice, social commonsense",
+   "builder_doc": "Social IQa (CC BY 4.0): social commonsense, 3 options (validation split).",
+   "revisions": {
+    "allenai/social_i_qa": "537a2ec8ec565adc0b70b70752893e59e024df26"
+   },
+   "files": {
+    "allenai/social_i_qa/default/validation/0000.parquet": {
+     "repo": "allenai/social_i_qa",
+     "path": "default/validation/0000.parquet",
+     "revision": "537a2ec8ec565adc0b70b70752893e59e024df26",
+     "sha256": "23c22ee065bf57b77b775f1c90e7a277a39fd39d386bd7bcc9e3f212e3f35197"
+    }
+   },
+   "rows": 140,
+   "questions": 140,
+   "question_types": {
+    "choice": 140
+   },
+   "option_buckets": {
+    "3-5": 140
+   },
+   "languages": {
+    "en": 140
+   },
+   "state_tokens": {
+    "min": 5,
+    "median": 16,
+    "max": 36,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 560,
+   "quota": 140,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "belebele": {
+   "dataset": "Belebele",
+   "repos": [
+    "facebook/belebele"
+   ],
+   "split": "test (only split)",
+   "licence": "CC BY-SA 4.0",
+   "domain": "reading comprehension, 15 languages, grouped questions",
+   "builder_doc": "Belebele (CC BY-SA 4.0): multiple-choice reading comprehension on FLORES passages, 4 options; all questions on a passage share its state. Disjoint passages across languages (parallel data).",
+   "revisions": {
+    "facebook/belebele": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2"
+   },
+   "files": {
+    "facebook/belebele/data/eng_Latn.jsonl": {
+     "repo": "facebook/belebele",
+     "path": "data/eng_Latn.jsonl",
+     "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+     "sha256": "15af884c2b5994fdc71199e79d553a1864b08ce1b31894aa87f6be925a064a31"
+    },
+    "facebook/belebele/data/deu_Latn.jsonl": {
+     "repo": "facebook/belebele",
+     "path": "data/deu_Latn.jsonl",
+     "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+     "sha256": "ca04cfec5a865a803dfe70636b6f6c4696efbbfa66f4eb5e8cf89c86b0a74f09"
+    },
+    "facebook/belebele/data/spa_Latn.jsonl": {
+     "repo": "facebook/belebele",
+     "path": "data/spa_Latn.jsonl",
+     "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+     "sha256": "04741f3bc179d9d21a71d5fc0fa3eb1873986d0bef1ad47fbbbb3f710428a5b9"
+    },
+    "facebook/belebele/data/fra_Latn.jsonl": {
+     "repo": "facebook/belebele",
+     "path": "data/fra_Latn.jsonl",
+     "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+     "sha256": "11c3cd50907631642e6dca8396974e4d0dfbf6603e0f6e35d6c1e64eed662060"
+    },
+    "facebook/belebele/data/por_Latn.jsonl": {
+     "repo": "facebook/belebele",
+     "path": "data/por_Latn.jsonl",
+     "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+     "sha256": "da63cd6215d550f0ad3df5562567096e8e7731a04322f90e801c554b1c43b431"
+    },
+    "facebook/belebele/data/zho_Hans.jsonl": {
+     "repo": "facebook/belebele",
+     "path": "data/zho_Hans.jsonl",
+     "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+     "sha256": "f3b7915eaa27e44225979ffd38708c5beee63d28bea27a91253e5fe68e2fa147"
+    },
+    "facebook/belebele/data/jpn_Jpan.jsonl": {
+     "repo": "facebook/belebele",
+     "path": "data/jpn_Jpan.jsonl",
+     "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+     "sha256": "c5cc2184b7468196ea8a1c37382ab9e80640edd410266a381a42a05cbc0d2605"
+    },
+    "facebook/belebele/data/kor_Hang.jsonl": {
+     "repo": "facebook/belebele",
+     "path": "data/kor_Hang.jsonl",
+     "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+     "sha256": "e995f945e9dd7a87ed9c2c727b3fac01cf0e82fa94989cf448266d4f1c136fe2"
+    },
+    "facebook/belebele/data/rus_Cyrl.jsonl": {
+     "repo": "facebook/belebele",
+     "path": "data/rus_Cyrl.jsonl",
+     "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+     "sha256": "e8b81853605b97e993af07a34ad2c0a48ccd8dab80956b0650a161e8fea00de5"
+    },
+    "facebook/belebele/data/arb_Arab.jsonl": {
+     "repo": "facebook/belebele",
+     "path": "data/arb_Arab.jsonl",
+     "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+     "sha256": "a2282b0974826172b1ce76a5d9e362091cfc8a7a25023df2d011f88f588b56e0"
+    },
+    "facebook/belebele/data/hin_Deva.jsonl": {
+     "repo": "facebook/belebele",
+     "path": "data/hin_Deva.jsonl",
+     "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+     "sha256": "41d34aab7f8fc4d57dc5d61fb36c3ce6ce230fe8e1c156c4d3cff0ba4710ed8f"
+    },
+    "facebook/belebele/data/ind_Latn.jsonl": {
+     "repo": "facebook/belebele",
+     "path": "data/ind_Latn.jsonl",
+     "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+     "sha256": "14b16460324ca9b70f0fba56068a9860b1b5db00b6791acc4069aad69d8ab641"
+    },
+    "facebook/belebele/data/vie_Latn.jsonl": {
+     "repo": "facebook/belebele",
+     "path": "data/vie_Latn.jsonl",
+     "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+     "sha256": "7c93436c0551a0a66f38e2c7ab7386accb23cced283f77300e50164105dbf88c"
+    },
+    "facebook/belebele/data/tur_Latn.jsonl": {
+     "repo": "facebook/belebele",
+     "path": "data/tur_Latn.jsonl",
+     "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+     "sha256": "0a592307498d7999eb7be60b7ac3a037545b6ce400f85c61bdb1b88b790e4567"
+    },
+    "facebook/belebele/data/swh_Latn.jsonl": {
+     "repo": "facebook/belebele",
+     "path": "data/swh_Latn.jsonl",
+     "revision": "7899cdfa4e1e0d733fd77c848e2c273cb1d32be2",
+     "sha256": "c7b1c735c1b555f7d12219b7c16ceff3bc9f76d61f1736097acbefe055349813"
+    }
+   },
+   "rows": 137,
+   "questions": 250,
+   "question_types": {
+    "choice": 250
+   },
+   "option_buckets": {
+    "3-5": 250
+   },
+   "languages": {
+    "por_Latn": 6,
+    "rus_Cyrl": 5,
+    "spa_Latn": 6,
+    "kor_Hang": 6,
+    "fra_Latn": 7,
+    "jpn_Jpan": 5,
+    "arb_Arab": 7,
+    "zho_Hans": 5,
+    "eng_Latn": 60,
+    "ind_Latn": 5,
+    "vie_Latn": 5,
+    "hin_Deva": 6,
+    "swh_Latn": 5,
+    "deu_Latn": 4,
+    "tur_Latn": 5
+   },
+   "state_tokens": {
+    "min": 33,
+    "median": 104,
+    "max": 409,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 488,
+   "quota": 250,
+   "quota_unit": "questions",
+   "template_instruction_hits_logged": {}
+  },
+  "xcopa": {
+   "dataset": "XCOPA",
+   "repos": [
+    "cambridgeltl/xcopa"
+   ],
+   "split": "test",
+   "licence": "CC BY 4.0",
+   "domain": "causal commonsense, 11 languages",
+   "builder_doc": "XCOPA (CC BY 4.0): causal commonsense in 11 languages, 2 options; disjoint item ids across languages (the languages are translations of the same items).",
+   "revisions": {
+    "cambridgeltl/xcopa": "042f78955ba48e6404616762fa6e05e839c3907a"
+   },
+   "files": {
+    "cambridgeltl/xcopa/et/test-00000-of-00001.parquet": {
+     "repo": "cambridgeltl/xcopa",
+     "path": "et/test-00000-of-00001.parquet",
+     "revision": "042f78955ba48e6404616762fa6e05e839c3907a",
+     "sha256": "d6c634f2069d50d83d165c921100ea911611559e1ccce341984d83348634947e"
+    },
+    "cambridgeltl/xcopa/ht/test-00000-of-00001.parquet": {
+     "repo": "cambridgeltl/xcopa",
+     "path": "ht/test-00000-of-00001.parquet",
+     "revision": "042f78955ba48e6404616762fa6e05e839c3907a",
+     "sha256": "c656f3d259ef51ec4133d3bfac010388d81cab3403f3bfed27a65c79a0636a57"
+    },
+    "cambridgeltl/xcopa/id/test-00000-of-00001.parquet": {
+     "repo": "cambridgeltl/xcopa",
+     "path": "id/test-00000-of-00001.parquet",
+     "revision": "042f78955ba48e6404616762fa6e05e839c3907a",
+     "sha256": "c4101fb78e943ef6f05d1518a38fa4a46d7a99de180852c896180e89e0088e74"
+    },
+    "cambridgeltl/xcopa/it/test-00000-of-00001.parquet": {
+     "repo": "cambridgeltl/xcopa",
+     "path": "it/test-00000-of-00001.parquet",
+     "revision": "042f78955ba48e6404616762fa6e05e839c3907a",
+     "sha256": "bcfff39b774ce0b32265b963975fc8b6dee4717f8dd50194516bd37294094f5f"
+    },
+    "cambridgeltl/xcopa/qu/test-00000-of-00001.parquet": {
+     "repo": "cambridgeltl/xcopa",
+     "path": "qu/test-00000-of-00001.parquet",
+     "revision": "042f78955ba48e6404616762fa6e05e839c3907a",
+     "sha256": "9d9c0fad6ad99ec0032d38c8c3dd312cf1c078ca9c893e40702e31388569bfc7"
+    },
+    "cambridgeltl/xcopa/sw/test-00000-of-00001.parquet": {
+     "repo": "cambridgeltl/xcopa",
+     "path": "sw/test-00000-of-00001.parquet",
+     "revision": "042f78955ba48e6404616762fa6e05e839c3907a",
+     "sha256": "2a116f99cd89acad88cc0f1ff5f327759d1a4bad4f4edd4ac126b94c68018e3c"
+    },
+    "cambridgeltl/xcopa/ta/test-00000-of-00001.parquet": {
+     "repo": "cambridgeltl/xcopa",
+     "path": "ta/test-00000-of-00001.parquet",
+     "revision": "042f78955ba48e6404616762fa6e05e839c3907a",
+     "sha256": "cbb2ad0490a104a2613f01d4bc8016fd1647fd0ccd526b1c57b8676e4f3d998a"
+    },
+    "cambridgeltl/xcopa/th/test-00000-of-00001.parquet": {
+     "repo": "cambridgeltl/xcopa",
+     "path": "th/test-00000-of-00001.parquet",
+     "revision": "042f78955ba48e6404616762fa6e05e839c3907a",
+     "sha256": "34863404e64ac696e0fdcfa8f3d622bf4c8f9f31dc617deb871917a68a0692a9"
+    },
+    "cambridgeltl/xcopa/tr/test-00000-of-00001.parquet": {
+     "repo": "cambridgeltl/xcopa",
+     "path": "tr/test-00000-of-00001.parquet",
+     "revision": "042f78955ba48e6404616762fa6e05e839c3907a",
+     "sha256": "ecf463029239fff38685200610b27dcefad0c9e1c177647928a2fa91967a473a"
+    },
+    "cambridgeltl/xcopa/vi/test-00000-of-00001.parquet": {
+     "repo": "cambridgeltl/xcopa",
+     "path": "vi/test-00000-of-00001.parquet",
+     "revision": "042f78955ba48e6404616762fa6e05e839c3907a",
+     "sha256": "d779ae87472bcc0eea51dc0e60b1c51b5e19dbe3004a82d68631e221dcf18c92"
+    },
+    "cambridgeltl/xcopa/zh/test-00000-of-00001.parquet": {
+     "repo": "cambridgeltl/xcopa",
+     "path": "zh/test-00000-of-00001.parquet",
+     "revision": "042f78955ba48e6404616762fa6e05e839c3907a",
+     "sha256": "011d99080f4ed69dd995df0372866447c233689158b7cca5a541a30a99839fa6"
+    }
+   },
+   "rows": 110,
+   "questions": 110,
+   "question_types": {
+    "choice": 110
+   },
+   "option_buckets": {
+    "2": 110
+   },
+   "languages": {
+    "et": 10,
+    "ht": 10,
+    "id": 10,
+    "it": 10,
+    "qu": 10,
+    "sw": 10,
+    "ta": 10,
+    "th": 10,
+    "tr": 10,
+    "vi": 10,
+    "zh": 10
+   },
+   "state_tokens": {
+    "min": 4,
+    "median": 11,
+    "max": 65,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 440,
+   "quota": 110,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "truthfulqa": {
+   "dataset": "TruthfulQA (mc1)",
+   "repos": [
+    "truthfulqa/truthful_qa"
+   ],
+   "split": "validation (only split)",
+   "licence": "Apache-2.0",
+   "domain": "QA-as-choice, 4-13 options",
+   "builder_doc": "TruthfulQA mc1 (Apache-2.0): pick the true answer among 4-13 options (shuffled).",
+   "revisions": {
+    "truthfulqa/truthful_qa": "741b8276f2d1982aa3d5b832d3ee81ed3b896490"
+   },
+   "files": {
+    "truthfulqa/truthful_qa/multiple_choice/validation-00000-of-00001.parquet": {
+     "repo": "truthfulqa/truthful_qa",
+     "path": "multiple_choice/validation-00000-of-00001.parquet",
+     "revision": "741b8276f2d1982aa3d5b832d3ee81ed3b896490",
+     "sha256": "23f08e230ca4ed66babf3a72419af7cbde1f3d734dd396ac4cf6d088bd162afd"
+    }
+   },
+   "rows": 140,
+   "questions": 140,
+   "question_types": {
+    "choice": 140
+   },
+   "option_buckets": {
+    "3-5": 94,
+    "6-10": 37,
+    "2": 7,
+    "11-20": 2
+   },
+   "languages": {
+    "en": 140
+   },
+   "state_tokens": {
+    "min": 4,
+    "median": 11,
+    "max": 43,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 560,
+   "quota": 140,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "exams": {
+   "dataset": "EXAMS (multilingual)",
+   "repos": [
+    "mhardalov/exams"
+   ],
+   "split": "test",
+   "licence": "CC BY-SA 4.0",
+   "domain": "school-exam QA, 12 languages, 3-5 options",
+   "builder_doc": "EXAMS multilingual (CC BY-SA 4.0): school-exam questions, 3-5 options, 12 languages.",
+   "revisions": {
+    "mhardalov/exams": "4ff10804abb3341f8815cacd778181177bba7edd"
+   },
+   "files": {
+    "mhardalov/exams/multilingual/test-00000-of-00001.parquet": {
+     "repo": "mhardalov/exams",
+     "path": "multilingual/test-00000-of-00001.parquet",
+     "revision": "4ff10804abb3341f8815cacd778181177bba7edd",
+     "sha256": "f48b135adf69063fda3a3907391eea582b6b36673c860b1cea05e69b9c69f594"
+    }
+   },
+   "rows": 108,
+   "questions": 108,
+   "question_types": {
+    "choice": 108
+   },
+   "option_buckets": {
+    "3-5": 108
+   },
+   "languages": {
+    "ar": 9,
+    "bg": 9,
+    "de": 9,
+    "es": 9,
+    "fr": 9,
+    "hr": 9,
+    "hu": 9,
+    "it": 9,
+    "pl": 9,
+    "pt": 9,
+    "tr": 9,
+    "vi": 9
+   },
+   "state_tokens": {
+    "min": 8,
+    "median": 25,
+    "max": 157,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 432,
+   "quota": 108,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "davidson": {
+   "dataset": "Davidson et al. 2017 hate/offensive tweets",
+   "repos": [
+    "tdavidson/hate_speech_offensive"
+   ],
+   "split": "train (only split)",
+   "licence": "MIT (upstream GitHub t-davidson/hate-speech-and-offensive-language)",
+   "domain": "moderation, 3 options",
+   "builder_doc": "Davidson et al. hate/offensive tweets (MIT): 3 options, labels = CrowdFlower majority; only rows with >= 3 annotators and >= 2/3 agreement.",
+   "revisions": {
+    "tdavidson/hate_speech_offensive": "adc5fb774614827695774f2dbe0ea8122f6a92b4"
+   },
+   "files": {
+    "tdavidson/hate_speech_offensive/data/train-00000-of-00001.parquet": {
+     "repo": "tdavidson/hate_speech_offensive",
+     "path": "data/train-00000-of-00001.parquet",
+     "revision": "adc5fb774614827695774f2dbe0ea8122f6a92b4",
+     "sha256": "dd9fa2324dd645e46615b52cff924058933eb2ceff6699c7b02fcbdd5167a7b3"
+    }
+   },
+   "rows": 141,
+   "questions": 141,
+   "question_types": {
+    "choice": 141
+   },
+   "option_buckets": {
+    "3-5": 141
+   },
+   "languages": {
+    "en": 141
+   },
+   "state_tokens": {
+    "min": 2,
+    "median": 25,
+    "max": 75,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 564,
+   "quota": 141,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "pubmedqa": {
+   "dataset": "PubMedQA (pqa_labeled, expert labels)",
+   "repos": [
+    "qiaojin/PubMedQA"
+   ],
+   "split": "pqa_labeled (only labelled split)",
+   "licence": "MIT",
+   "domain": "biomedical QA, yes/no/maybe choice",
+   "builder_doc": "PubMedQA expert-labelled subset (MIT): yes / no / maybe from the abstract without its conclusion.",
+   "revisions": {
+    "qiaojin/PubMedQA": "9001f2853fb87cab8d220904e0de81ac6973b318"
+   },
+   "files": {
+    "qiaojin/PubMedQA/pqa_labeled/train-00000-of-00001.parquet": {
+     "repo": "qiaojin/PubMedQA",
+     "path": "pqa_labeled/train-00000-of-00001.parquet",
+     "revision": "9001f2853fb87cab8d220904e0de81ac6973b318",
+     "sha256": "3d56bd1abc11884579ecc3aab9dd3cdfce8b7cf54715daeca93b8022b7be231c"
+    }
+   },
+   "rows": 120,
+   "questions": 120,
+   "question_types": {
+    "choice": 120
+   },
+   "option_buckets": {
+    "3-5": 120
+   },
+   "languages": {
+    "en": 120
+   },
+   "state_tokens": {
+    "min": 64,
+    "median": 309,
+    "max": 590,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 480,
+   "quota": 120,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "klue_nli": {
+   "dataset": "KLUE-NLI",
+   "repos": [
+    "klue/klue"
+   ],
+   "split": "validation",
+   "licence": "CC BY-SA 4.0",
+   "domain": "NLI (Korean), 3 options",
+   "builder_doc": "KLUE-NLI (CC BY-SA 4.0): Korean NLI, 3 options (validation split; test labels unreleased).",
+   "revisions": {
+    "klue/klue": "349481ec73fff722f88e0453ca05c77a447d967c"
+   },
+   "files": {
+    "klue/klue/nli/validation-00000-of-00001.parquet": {
+     "repo": "klue/klue",
+     "path": "nli/validation-00000-of-00001.parquet",
+     "revision": "349481ec73fff722f88e0453ca05c77a447d967c",
+     "sha256": "b809f8f0aac2a2f41cd095bf15d8dbca9c931d7539390b6ef6241ca976195423"
+    },
+    "klue/klue/ynat/validation-00000-of-00001.parquet": {
+     "repo": "klue/klue",
+     "path": "ynat/validation-00000-of-00001.parquet",
+     "revision": "349481ec73fff722f88e0453ca05c77a447d967c",
+     "sha256": "521a6785a2492a9142474ad23ae038b1a6f333fa7e39aab8fd9dd19a20c9ce92"
+    },
+    "klue/klue/sts/validation-00000-of-00001.parquet": {
+     "repo": "klue/klue",
+     "path": "sts/validation-00000-of-00001.parquet",
+     "revision": "349481ec73fff722f88e0453ca05c77a447d967c",
+     "sha256": "67611cf65f0d35feb244af81a1609186c55cc3a4aee293d1ceb02fb0d6b721ea"
+    }
+   },
+   "rows": 80,
+   "questions": 80,
+   "question_types": {
+    "choice": 80
+   },
+   "option_buckets": {
+    "3-5": 80
+   },
+   "languages": {
+    "ko": 80
+   },
+   "state_tokens": {
+    "min": 25,
+    "median": 42,
+    "max": 85,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 380,
+   "quota": 80,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "klue_ynat": {
+   "dataset": "KLUE-YNAT",
+   "repos": [
+    "klue/klue"
+   ],
+   "split": "validation",
+   "licence": "CC BY-SA 4.0",
+   "domain": "news topic (Korean), 7 options",
+   "builder_doc": "KLUE-YNAT (CC BY-SA 4.0): Korean news-headline section, 7 options (validation split).",
+   "revisions": {
+    "klue/klue": "349481ec73fff722f88e0453ca05c77a447d967c"
+   },
+   "files": {
+    "klue/klue/nli/validation-00000-of-00001.parquet": {
+     "repo": "klue/klue",
+     "path": "nli/validation-00000-of-00001.parquet",
+     "revision": "349481ec73fff722f88e0453ca05c77a447d967c",
+     "sha256": "b809f8f0aac2a2f41cd095bf15d8dbca9c931d7539390b6ef6241ca976195423"
+    },
+    "klue/klue/ynat/validation-00000-of-00001.parquet": {
+     "repo": "klue/klue",
+     "path": "ynat/validation-00000-of-00001.parquet",
+     "revision": "349481ec73fff722f88e0453ca05c77a447d967c",
+     "sha256": "521a6785a2492a9142474ad23ae038b1a6f333fa7e39aab8fd9dd19a20c9ce92"
+    },
+    "klue/klue/sts/validation-00000-of-00001.parquet": {
+     "repo": "klue/klue",
+     "path": "sts/validation-00000-of-00001.parquet",
+     "revision": "349481ec73fff722f88e0453ca05c77a447d967c",
+     "sha256": "67611cf65f0d35feb244af81a1609186c55cc3a4aee293d1ceb02fb0d6b721ea"
+    }
+   },
+   "rows": 80,
+   "questions": 80,
+   "question_types": {
+    "choice": 80
+   },
+   "option_buckets": {
+    "6-10": 80
+   },
+   "languages": {
+    "ko": 80
+   },
+   "state_tokens": {
+    "min": 5,
+    "median": 18,
+    "max": 25,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 380,
+   "quota": 80,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "pawsx": {
+   "dataset": "PAWS-X",
+   "repos": [
+    "google-research-datasets/paws-x"
+   ],
+   "split": "test",
+   "licence": "free for any purpose with attribution to Google (PAWS licence)",
+   "domain": "paraphrase yes/no, 6 languages",
+   "builder_doc": "PAWS-X (free for any use, Google): paraphrase identification in 6 languages, yes/no; disjoint ids across languages (translations of the same pairs).",
+   "revisions": {
+    "google-research-datasets/paws-x": "4cd8187c404bda33cb1f62b49b001115862acf37"
+   },
+   "files": {
+    "google-research-datasets/paws-x/de/test-00000-of-00001.parquet": {
+     "repo": "google-research-datasets/paws-x",
+     "path": "de/test-00000-of-00001.parquet",
+     "revision": "4cd8187c404bda33cb1f62b49b001115862acf37",
+     "sha256": "9f50249f813edbde93aa86668775779671457aee6b0fa334d1acd5d8d9f83fe6"
+    },
+    "google-research-datasets/paws-x/es/test-00000-of-00001.parquet": {
+     "repo": "google-research-datasets/paws-x",
+     "path": "es/test-00000-of-00001.parquet",
+     "revision": "4cd8187c404bda33cb1f62b49b001115862acf37",
+     "sha256": "5ba872e113a79c783616e59d3d28ec0e922b6db745d797e5eb95010a32928bee"
+    },
+    "google-research-datasets/paws-x/fr/test-00000-of-00001.parquet": {
+     "repo": "google-research-datasets/paws-x",
+     "path": "fr/test-00000-of-00001.parquet",
+     "revision": "4cd8187c404bda33cb1f62b49b001115862acf37",
+     "sha256": "98844ef252bf38c42cbbf144ec30984c9e54c4c204d0e777c083831130593f4b"
+    },
+    "google-research-datasets/paws-x/ja/test-00000-of-00001.parquet": {
+     "repo": "google-research-datasets/paws-x",
+     "path": "ja/test-00000-of-00001.parquet",
+     "revision": "4cd8187c404bda33cb1f62b49b001115862acf37",
+     "sha256": "a75eb349a59de7c0db1c408c4db29f8d9fbbc75cbd57d637f8a2454ae89abfd8"
+    },
+    "google-research-datasets/paws-x/ko/test-00000-of-00001.parquet": {
+     "repo": "google-research-datasets/paws-x",
+     "path": "ko/test-00000-of-00001.parquet",
+     "revision": "4cd8187c404bda33cb1f62b49b001115862acf37",
+     "sha256": "b27692abb0b1be9f9a3a22f80cee749d9dd35870a6f2874c594777aac3aa6988"
+    },
+    "google-research-datasets/paws-x/zh/test-00000-of-00001.parquet": {
+     "repo": "google-research-datasets/paws-x",
+     "path": "zh/test-00000-of-00001.parquet",
+     "revision": "4cd8187c404bda33cb1f62b49b001115862acf37",
+     "sha256": "cdae3237c12a49165aacf489d3ab60b832b7672e7775abf937a1495f3ab75c80"
+    },
+    "google-research-datasets/paws-x/en/test-00000-of-00001.parquet": {
+     "repo": "google-research-datasets/paws-x",
+     "path": "en/test-00000-of-00001.parquet",
+     "revision": "4cd8187c404bda33cb1f62b49b001115862acf37",
+     "sha256": "fdb1e43f1068cf0cec955327cfdedc2d3065f15d3cd673c9d0002e6e87cc7915"
+    }
+   },
+   "rows": 150,
+   "questions": 150,
+   "question_types": {
+    "noul": 150
+   },
+   "option_buckets": {},
+   "languages": {
+    "de": 25,
+    "es": 25,
+    "fr": 25,
+    "ja": 25,
+    "ko": 25,
+    "zh": 25
+   },
+   "state_tokens": {
+    "min": 30,
+    "median": 74,
+    "max": 155,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels. PAWS / PAWS-X in no list; PAWS (en) candidates that are the English source of a chosen PAWS-X pair are skipped.",
+   "candidates": 600,
+   "quota": 150,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "paws": {
+   "dataset": "PAWS-Wiki labeled_final",
+   "repos": [
+    "google-research-datasets/paws"
+   ],
+   "split": "test",
+   "licence": "free for any purpose with attribution to Google (LICENSE in google-research-datasets/paws)",
+   "domain": "paraphrase yes/no",
+   "builder_doc": "PAWS-Wiki labeled_final (free for any use, Google): English paraphrase identification, yes/no. Pairs whose English text is the source of a selected PAWS-X candidate are skipped.",
+   "revisions": {
+    "google-research-datasets/paws": "161ece9501cf0a11f3e48bd356eaa82de46d6a09"
+   },
+   "files": {
+    "google-research-datasets/paws/labeled_final/test-00000-of-00001.parquet": {
+     "repo": "google-research-datasets/paws",
+     "path": "labeled_final/test-00000-of-00001.parquet",
+     "revision": "161ece9501cf0a11f3e48bd356eaa82de46d6a09",
+     "sha256": "ae342ff12bb84b84b95f468abf5db6cb7c7bd578271299fe9c99be75b8132f4d"
+    }
+   },
+   "rows": 220,
+   "questions": 220,
+   "question_types": {
+    "noul": 220
+   },
+   "option_buckets": {},
+   "languages": {
+    "en": 220
+   },
+   "state_tokens": {
+    "min": 33,
+    "median": 59,
+    "max": 124,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 880,
+   "quota": 220,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "creak": {
+   "dataset": "CREAK",
+   "repos": [
+    "amydeng2000/CREAK"
+   ],
+   "split": "dev",
+   "licence": "MIT (upstream GitHub yasumasaonoe/creak; HF mirror card states none)",
+   "domain": "entity-knowledge claim verification yes/no",
+   "builder_doc": "CREAK (MIT): crowd-written commonsense claims about real entities, true/false (dev split; test labels are not public).",
+   "revisions": {
+    "amydeng2000/CREAK": "cceb4696560317e920d6512b906263bb425883a1"
+   },
+   "files": {
+    "amydeng2000/CREAK/dev.json": {
+     "repo": "amydeng2000/CREAK",
+     "path": "dev.json",
+     "revision": "cceb4696560317e920d6512b906263bb425883a1",
+     "sha256": "de61800bb7d0c07a9d5b8abdf4c1604db21151bdfcb13a284db112a531bf3455"
+    }
+   },
+   "rows": 220,
+   "questions": 220,
+   "question_types": {
+    "noul": 220
+   },
+   "option_buckets": {},
+   "languages": {
+    "en": 220
+   },
+   "state_tokens": {
+    "min": 6,
+    "median": 11,
+    "max": 32,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 880,
+   "quota": 220,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "strategyqa": {
+   "dataset": "StrategyQA",
+   "repos": [
+    "ChilleD/StrategyQA"
+   ],
+   "split": "test (ChilleD split of the labelled original train set)",
+   "licence": "MIT",
+   "domain": "multi-hop yes/no QA",
+   "builder_doc": "StrategyQA (MIT): implicit multi-hop yes/no questions (ChilleD 'test' = held-out part of the original labelled train set).",
+   "revisions": {
+    "ChilleD/StrategyQA": "705562638fe1d8ca6bb98c66fc8f94d45fda8c83"
+   },
+   "files": {
+    "ChilleD/StrategyQA/test.json": {
+     "repo": "ChilleD/StrategyQA",
+     "path": "test.json",
+     "revision": "705562638fe1d8ca6bb98c66fc8f94d45fda8c83",
+     "sha256": "6da41445f044a7abde29f987d3311757cd0c33e759ea6f37fa100917bf0a82b0"
+    }
+   },
+   "rows": 230,
+   "questions": 230,
+   "question_types": {
+    "noul": 230
+   },
+   "option_buckets": {},
+   "languages": {
+    "en": 230
+   },
+   "state_tokens": {
+    "min": 6,
+    "median": 12,
+    "max": 22,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 687,
+   "quota": 230,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "cuad": {
+   "dataset": "CUAD v1",
+   "repos": [
+    "theatticusproject/cuad"
+   ],
+   "split": "all (510 contracts; no official split)",
+   "licence": "CC BY 4.0",
+   "domain": "long contracts (2K-12K tokens), 5 yes/no clause questions each",
+   "builder_doc": "CUAD v1 (CC BY 4.0): expert-annotated commercial contracts, 2,000-12,000 tokens; 5 yes/no questions per contract ('does the contract contain a <category> provision'), ~half positive.",
+   "revisions": {
+    "theatticusproject/cuad": "a3c393f5d103fd0c516374e4fdff676c8176dcb1"
+   },
+   "files": {
+    "theatticusproject/cuad/CUAD_v1/CUAD_v1.json": {
+     "repo": "theatticusproject/cuad",
+     "path": "CUAD_v1/CUAD_v1.json",
+     "revision": "a3c393f5d103fd0c516374e4fdff676c8176dcb1",
+     "sha256": "ed0b77d85bdf4014d7495800e8e4a70565b48ee6f8a2e5dca9cf8655dbf10eae"
+    }
+   },
+   "rows": 70,
+   "questions": 350,
+   "question_types": {
+    "noul": 350
+   },
+   "option_buckets": {},
+   "languages": {
+    "en": 70
+   },
+   "state_tokens": {
+    "min": 2146,
+    "median": 6030,
+    "max": 11750,
+    "long_2k_12k_rows": 70
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels. MAUD (2B training) and ContractNLI (DI) are different Atticus/Stanford corpora; CUAD itself is in no list.",
+   "candidates": 289,
+   "quota": 70,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "allocine": {
+   "dataset": "Allociné",
+   "repos": [
+    "tblard/allocine"
+   ],
+   "split": "test",
+   "licence": "MIT",
+   "domain": "sentiment yes/no (French)",
+   "builder_doc": "Allociné (MIT): French film-review polarity, yes/no (test split).",
+   "revisions": {
+    "tblard/allocine": "a4654f4896408912913a62ace89614879a549287"
+   },
+   "files": {
+    "tblard/allocine/allocine/test-00000-of-00001.parquet": {
+     "repo": "tblard/allocine",
+     "path": "allocine/test-00000-of-00001.parquet",
+     "revision": "a4654f4896408912913a62ace89614879a549287",
+     "sha256": "0e313c31e2db65eae40072f525eb0bc3567817baad70a85f798836b1e5be5a88"
+    }
+   },
+   "rows": 90,
+   "questions": 90,
+   "question_types": {
+    "noul": 90
+   },
+   "option_buckets": {},
+   "languages": {
+    "fr": 90
+   },
+   "state_tokens": {
+    "min": 8,
+    "median": 120,
+    "max": 467,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 390,
+   "quota": 90,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "jnli": {
+   "dataset": "JGLUE JNLI",
+   "repos": [
+    "shunk031/JGLUE"
+   ],
+   "split": "validation",
+   "licence": "CC BY-SA 4.0 (yahoojapan/JGLUE)",
+   "domain": "entailment yes/no (Japanese)",
+   "builder_doc": "JGLUE JNLI (CC BY-SA 4.0): Japanese NLI as yes/no entailment (validation split).",
+   "revisions": {
+    "shunk031/JGLUE": "3a4a622d8ae03c700184c17da7afa1d3dc870cd3"
+   },
+   "files": {
+    "shunk031/JGLUE/JNLI/validation/0000.parquet": {
+     "repo": "shunk031/JGLUE",
+     "path": "JNLI/validation/0000.parquet",
+     "revision": "3a4a622d8ae03c700184c17da7afa1d3dc870cd3",
+     "sha256": "3c26602960fb7b0fe28cde217368521100b6e3fe40e7ba48f4fa3c0235b5277c"
+    }
+   },
+   "rows": 90,
+   "questions": 90,
+   "question_types": {
+    "noul": 90
+   },
+   "option_buckets": {},
+   "languages": {
+    "ja": 90
+   },
+   "state_tokens": {
+    "min": 25,
+    "median": 34,
+    "max": 58,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 390,
+   "quota": 90,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "vitaminc": {
+   "dataset": "VitaminC",
+   "repos": [
+    "tals/vitaminc"
+   ],
+   "split": "test",
+   "licence": "CC BY-SA 3.0",
+   "domain": "fact verification yes/no",
+   "builder_doc": "VitaminC (CC BY-SA 3.0): contrastive fact verification against Wikipedia evidence; SUPPORTS vs REFUTES as yes/no (test split; NOT ENOUGH INFO rows are not used).",
+   "revisions": {
+    "tals/vitaminc": "be6febb761b0b2807687e61e0b5282e459df2fa0"
+   },
+   "files": {
+    "tals/vitaminc/test.jsonl": {
+     "repo": "tals/vitaminc",
+     "path": "test.jsonl",
+     "revision": "be6febb761b0b2807687e61e0b5282e459df2fa0",
+     "sha256": "7ad1808dbc30c62e0a1427a53022d0dfaff668a1fde3c4b612a2d266edd753ad"
+    }
+   },
+   "rows": 220,
+   "questions": 220,
+   "question_types": {
+    "noul": 220
+   },
+   "option_buckets": {},
+   "languages": {
+    "en": 220
+   },
+   "state_tokens": {
+    "min": 21,
+    "median": 56,
+    "max": 194,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels. Distinct from HoVer (DI, JevK5) and FEVER-derived training sets of the cascade models.",
+   "candidates": 880,
+   "quota": 220,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "helpsteer": {
+   "dataset": "HelpSteer (v1)",
+   "repos": [
+    "nvidia/HelpSteer"
+   ],
+   "split": "validation",
+   "licence": "CC BY 4.0",
+   "domain": "response-quality rating, 5 x 0-4 scores per state (JSON state)",
+   "builder_doc": "HelpSteer v1 (NVIDIA, CC BY 4.0): human 0-4 ratings of a response on 5 attributes (validation split); one response per prompt; responses that also appear in HelpSteer2 (trained on by the 2B) are dropped (prompt overlap with HelpSteer2 is 0).",
+   "revisions": {
+    "nvidia/HelpSteer": "3ca5d59c1bc1080af195b4254e7407db60b6f450"
+   },
+   "files": {
+    "nvidia/HelpSteer/validation.jsonl.gz": {
+     "repo": "nvidia/HelpSteer",
+     "path": "validation.jsonl.gz",
+     "revision": "3ca5d59c1bc1080af195b4254e7407db60b6f450",
+     "sha256": "5dd705a443e4973a37d4e384271dc325e329f34966ddc3dbd06cd459ebad947e"
+    },
+    "nvidia/HelpSteer2/train.jsonl.gz": {
+     "repo": "nvidia/HelpSteer2",
+     "path": "train.jsonl.gz",
+     "revision": "990b2711a36180dd19d9c94b8627844866f8982a",
+     "sha256": "c0d7e91d738d42e8a08070db26c4c09a9c7631308e1f0fd380ff43d130c9f713"
+    },
+    "nvidia/HelpSteer2/validation.jsonl.gz": {
+     "repo": "nvidia/HelpSteer2",
+     "path": "validation.jsonl.gz",
+     "revision": "990b2711a36180dd19d9c94b8627844866f8982a",
+     "sha256": "610eeb5289494d613c4c0f70aade2df8df0b499f3a24e76d232f74e6909d010a"
+    }
+   },
+   "rows": 50,
+   "questions": 250,
+   "question_types": {
+    "score": 250
+   },
+   "option_buckets": {
+    "score_5_levels": 250
+   },
+   "languages": {
+    "en": 50
+   },
+   "state_tokens": {
+    "min": 62,
+    "median": 889,
+    "max": 1405,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels. HelpSteer2 (2B training) is a different release; exact-hash prompt overlap 0, the responses that also occur in HelpSteer2 are dropped. Responses were written by NVIDIA's 43B model (not a teacher of any cascade model); labels are Scale AI human ratings.",
+   "candidates": 350,
+   "quota": 50,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "mhs": {
+   "dataset": "Measuring Hate Speech",
+   "repos": [
+    "ucberkeley-dlab/measuring-hate-speech"
+   ],
+   "split": "all (only split)",
+   "licence": "CC BY 4.0",
+   "domain": "moderation: 3 x 0-4 ordinal scores + hate-speech yes/no",
+   "builder_doc": "Measuring Hate Speech (UC Berkeley D-Lab, CC BY 4.0): comments rated by 3, 5 or 7 annotators; label = median annotator rating. 3 ordinal (0-4) questions per comment + a yes/no 'hate speech' question when the median hate-speech rating is clearly yes (2) or no (0). Stratified over the continuous hate-speech score.",
+   "revisions": {
+    "ucberkeley-dlab/measuring-hate-speech": "5468f6e118396646b02a2f691e771f6b6d9502ea"
+   },
+   "files": {
+    "ucberkeley-dlab/measuring-hate-speech/measuring-hate-speech.parquet": {
+     "repo": "ucberkeley-dlab/measuring-hate-speech",
+     "path": "measuring-hate-speech.parquet",
+     "revision": "5468f6e118396646b02a2f691e771f6b6d9502ea",
+     "sha256": "6819525ce61bc24344df9fc3f7bf48270b31038273cc27c67fc225b51433b0e1"
+    }
+   },
+   "rows": 100,
+   "questions": 391,
+   "question_types": {
+    "score": 300,
+    "noul": 91
+   },
+   "option_buckets": {
+    "score_5_levels": 300
+   },
+   "languages": {
+    "en": 100
+   },
+   "state_tokens": {
+    "min": 5,
+    "median": 28,
+    "max": 140,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 400,
+   "quota": 100,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "summeval": {
+   "dataset": "SummEval (expert annotations)",
+   "repos": [
+    "mteb/summeval"
+   ],
+   "split": "test (only split)",
+   "licence": "MIT (Yale-LILY/SummEval); articles from CNN/DailyMail",
+   "domain": "summary quality, 4 x 1-5 scores (JSON state)",
+   "builder_doc": "SummEval (MIT; CNN/DailyMail articles): expert 1-5 ratings of a machine summary on 4 dimensions (mean of the expert ratings, rounded half up); one summary per article.",
+   "revisions": {
+    "mteb/summeval": "bfc121155064afa2d81b5505682ffc0d96f4334c"
+   },
+   "files": {
+    "mteb/summeval/data/test-00000-of-00001-35901af5f6649399.parquet": {
+     "repo": "mteb/summeval",
+     "path": "data/test-00000-of-00001-35901af5f6649399.parquet",
+     "revision": "bfc121155064afa2d81b5505682ffc0d96f4334c",
+     "sha256": "7ff6f3f4d044223bd6922c5434d27bf28473950346fcfc2a3b7352c19163690e"
+    }
+   },
+   "rows": 50,
+   "questions": 200,
+   "question_types": {
+    "score": 200
+   },
+   "option_buckets": {
+    "score_5_levels": 200
+   },
+   "languages": {
+    "en": 50
+   },
+   "state_tokens": {
+    "min": 209,
+    "median": 564,
+    "max": 794,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels. Summaries come from 2019-2020 summarizers (not cascade teachers); labels are expert ratings.",
+   "candidates": 100,
+   "quota": 50,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "klue_sts": {
+   "dataset": "KLUE-STS",
+   "repos": [
+    "klue/klue"
+   ],
+   "split": "validation",
+   "licence": "CC BY-SA 4.0",
+   "domain": "semantic similarity 0-5 (Korean)",
+   "builder_doc": "KLUE-STS (CC BY-SA 4.0): Korean semantic similarity 0-5 (mean annotator score rounded half up; validation split).",
+   "revisions": {
+    "klue/klue": "349481ec73fff722f88e0453ca05c77a447d967c"
+   },
+   "files": {
+    "klue/klue/nli/validation-00000-of-00001.parquet": {
+     "repo": "klue/klue",
+     "path": "nli/validation-00000-of-00001.parquet",
+     "revision": "349481ec73fff722f88e0453ca05c77a447d967c",
+     "sha256": "b809f8f0aac2a2f41cd095bf15d8dbca9c931d7539390b6ef6241ca976195423"
+    },
+    "klue/klue/ynat/validation-00000-of-00001.parquet": {
+     "repo": "klue/klue",
+     "path": "ynat/validation-00000-of-00001.parquet",
+     "revision": "349481ec73fff722f88e0453ca05c77a447d967c",
+     "sha256": "521a6785a2492a9142474ad23ae038b1a6f333fa7e39aab8fd9dd19a20c9ce92"
+    },
+    "klue/klue/sts/validation-00000-of-00001.parquet": {
+     "repo": "klue/klue",
+     "path": "sts/validation-00000-of-00001.parquet",
+     "revision": "349481ec73fff722f88e0453ca05c77a447d967c",
+     "sha256": "67611cf65f0d35feb244af81a1609186c55cc3a4aee293d1ceb02fb0d6b721ea"
+    }
+   },
+   "rows": 80,
+   "questions": 80,
+   "question_types": {
+    "score": 80
+   },
+   "option_buckets": {
+    "score_6_levels": 80
+   },
+   "languages": {
+    "ko": 80
+   },
+   "state_tokens": {
+    "min": 25,
+    "median": 36,
+    "max": 129,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 380,
+   "quota": 80,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "onestop": {
+   "dataset": "OneStopEnglish",
+   "repos": [
+    "SetFit/onestop_english"
+   ],
+   "split": "train+test",
+   "licence": "CC BY-SA 4.0",
+   "domain": "reading level, 3 levels",
+   "builder_doc": "OneStopEnglish (CC BY-SA 4.0): reading level of a Guardian-based article (3 ordered levels); the leading level line some texts carry is removed; near-duplicate versions of an already chosen article (5-word-shingle Jaccard > 0.2) are skipped.",
+   "revisions": {
+    "SetFit/onestop_english": "95ec1d31cef548b24b6071771ed2a2d317fd7717"
+   },
+   "files": {
+    "SetFit/onestop_english/train.jsonl": {
+     "repo": "SetFit/onestop_english",
+     "path": "train.jsonl",
+     "revision": "95ec1d31cef548b24b6071771ed2a2d317fd7717",
+     "sha256": "803494d8533a20c929a23a3c9c2bbec3bc7e61f2a9e8b79dcec8b172897a4d8a"
+    },
+    "SetFit/onestop_english/test.jsonl": {
+     "repo": "SetFit/onestop_english",
+     "path": "test.jsonl",
+     "revision": "95ec1d31cef548b24b6071771ed2a2d317fd7717",
+     "sha256": "5bba9d763e03174591202525b79532d24d87982c065aa3788891fff30cbe66d6"
+    }
+   },
+   "rows": 90,
+   "questions": 90,
+   "question_types": {
+    "score": 90
+   },
+   "option_buckets": {
+    "score_3_levels": 90
+   },
+   "languages": {
+    "en": 90
+   },
+   "state_tokens": {
+    "min": 365,
+    "median": 828,
+    "max": 1335,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 311,
+   "quota": 90,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  },
+  "allegro": {
+   "dataset": "Allegro Reviews (KLEJ AR)",
+   "repos": [
+    "allegro/klej-allegro-reviews"
+   ],
+   "split": "test",
+   "licence": "CC BY-SA 4.0 (klejbenchmark.com/tasks)",
+   "domain": "review star rating 1-5 (Polish)",
+   "builder_doc": "Allegro Reviews / KLEJ-AR (CC BY-SA 4.0): Polish product review, 1-5 star rating (test split).",
+   "revisions": {
+    "allegro/klej-allegro-reviews": "b9ca796de36c796d6d5b853c3f13ef461440d630"
+   },
+   "files": {
+    "allegro/klej-allegro-reviews/test.csv": {
+     "repo": "allegro/klej-allegro-reviews",
+     "path": "test.csv",
+     "revision": "b9ca796de36c796d6d5b853c3f13ef461440d630",
+     "sha256": "63e016cc5c532402680696463afe6cb0cda03c9a1ddfe9bfef1ed4d421a55929"
+    }
+   },
+   "rows": 90,
+   "questions": 90,
+   "question_types": {
+    "score": 90
+   },
+   "option_buckets": {
+    "score_5_levels": 90
+   },
+   "languages": {
+    "pl": 90
+   },
+   "state_tokens": {
+    "min": 89,
+    "median": 124,
+    "max": 449,
+    "long_2k_12k_rows": 0
+   },
+   "clean_why": "Not in the training/tuning/selection disclosures of Jev-Style-0.8B-v3 (card 'Training' + 'Training data and licences'), Jev-Style-2B-v3 (validation/data_sources.json, 58 sources, and its evaluation-only list) or JevK5-9B v0.3.3 (= JevK5 v0.3 data: 26 public train splits + Qwen3.6-27B / GPT-6 Luna teacher questions; dev = 5% of those splits; MASSIVE/BANKING77/CLINC150 used for its >16-option temperature); not a Decision Index 0.2.1 benchmark; not a JevBench source. Labels are the dataset's own human/gold labels.",
+   "candidates": 390,
+   "quota": 90,
+   "quota_unit": "rows",
+   "template_instruction_hits_logged": {}
+  }
+ }
+}

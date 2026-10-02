@@ -1,0 +1,24 @@
+{
+  "id": "jev-style-cascade-9b",
+  "description": "Jev-Style 2B Decision v3 (in-process, PyTorch) -> JevK5-9B v0.3.3 by alibiserikbay (third party, Apache-2.0, in-process via allebee/jevk5); one threshold on normalized confidence",
+  "tiers": [
+    {
+      "name": "2b",
+      "model_id": "jev-style-2b-decision-v3",
+      "target": "local:2b-v3:torch",
+      "dtype": "float32"
+    },
+    {
+      "name": "jevk5-9b",
+      "model_id": "alibiserikbay/JevK5-9B",
+      "target": "jevk5:alibiserikbay/JevK5-9B",
+      "revision": "d6521a18a86999190e9d775c915af3d6d6772fc4"
+    }
+  ],
+  "thresholds": [
+    0.75
+  ],
+  "confidence": "normalized_pmax",
+  "frozen_utc": "2026-10-02T21:53:31Z",
+  "calibration_sha256": "580962e4b2bc86b32b42731eda42536f57321c7d1ca9ac1e3b970bf7dbd7e2d2"
+}
